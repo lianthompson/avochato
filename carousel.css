@@ -1,3 +1,66 @@
-h1 {
-    color: blue;
+body, #carousel-container--inner, .carousel-container, .carousel-image {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 80vh;
+} 
+
+.carousel-container {
+    position: relative;
+}
+
+.carousel-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.image1 {
+    background-image: url('https://drscdn.500px.org/photo/50740698/m%3D900/v2?webp=true&sig=f033a432a7b3801fdac8c68d8102e203f47c4f769f7f0797f236c9afbe9166d6');
+}
+
+.image2 {
+    background-image: url('http://akc.org/wp-content/uploads/2015/10/Beagle-Puppies.jpg');
+}
+
+.image3 {
+    background-image: url('https://drscdn.500px.org/photo/74336995/m%3D900/v2?webp=true&sig=2f18282cd3718264b621a9023647c3b879c9bfb205382df8ec142caa5409373c');
+}
+
+.image4 {
+    background-image: url('https://drscdn.500px.org/photo/53902484/m%3D900/967900e2879633dccdb92271ab8113ed');
+}
+
+.image5 {
+    background-image: url('https://drscdn.500px.org/photo/34714752/m%3D900/v2?webp=true&sig=b7d89372d57338974251112917c2cfd1ec3d1cd700afbe904e0131fb2e03ab1f');
+}
+
+.btn-container {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    background: transparent;
+    border: transparent;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+
+}
+
+#previous {
+
+}
+  
+#next {
+    right: 0;
+    padding-right: 10px;
+}
+
+@media screen and (max-width: 550px){
+    .arrow {
+        width: 5%;
+    }
 }
