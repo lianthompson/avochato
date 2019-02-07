@@ -16,7 +16,6 @@ a, a:hover {
     background-size: cover;
     background-position-x: center;
     background-repeat: no-repeat;
-    /* height: auto; */
     height: 100%;
     width: 100%;
 }
@@ -48,7 +47,8 @@ a, a:hover {
 }
 
 .btn {
-    background: transparent;
+    background: white;
+    border-radius: 5px;
     border: transparent;
     cursor: pointer;
     position: absolute;
@@ -66,37 +66,9 @@ a, a:hover {
   
 #next {
     right: 0;
-    padding-right: 60px;
+    margin-right: 60px;
 }
 
 #previous {
     margin-left: 30px;
 }
-
-/* @media screen and (min-width: 600px){
-    body, #carousel-container--inner, .carousel-container, .carousel-image {
-        height: 100vh;
-    }
-
-    .btn {
-        top: 50%;
-    }
-} */
-
-/* @media screen and (max-width: 500px){
-    .carousel-image {
-        max-height: 250px;
-    }
-}
-
-@media screen and (max-width: 600px){
-    .carousel-image {
-        max-height: 300px;
-    }
-}
-
-@media screen and (max-width: 700px){
-    .carousel-image {
-        max-height: 425px;
-    }
-} */
