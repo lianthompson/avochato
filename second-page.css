@@ -1,9 +1,13 @@
-body, #carousel-container--inner, .carousel-container {
+body {
+    width: 100%;
     margin: 0;
     padding: 0;
-    width: 100%;
-    font-family: 'Quicksand', sans-serif;
-} 
+}
+
+.carousel-container .carousel-container--inner{
+    height: 100vh;
+    width: 100vw;
+}
 
 a, a:hover {
     color: inherit;
@@ -12,15 +16,17 @@ a, a:hover {
  }
 
 .carousel-image {
+    display: none;
     position: absolute;
     background-size: cover;
     background-position-x: center;
     background-repeat: no-repeat;
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
 }
 
 .image1 {
+    background-size: cover;
     background-image: url('https://drscdn.500px.org/photo/50740698/m%3D900/v2?webp=true&sig=f033a432a7b3801fdac8c68d8102e203f47c4f769f7f0797f236c9afbe9166d6');
 }
 
@@ -52,7 +58,7 @@ a, a:hover {
     border: transparent;
     cursor: pointer;
     position: absolute;
-    top: 50%;
+    top: 60%;
     font-family: 'Quicksand', sans-serif;
     font-size: 20px;
 }
@@ -72,3 +78,17 @@ a, a:hover {
 #previous {
     margin-left: 30px;
 }
+
+.dot-container {
+    top: 10px;
+    text-align: center;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    display: inline-block;
+    background: gray;
+    border-radius: 50%;
+}
+

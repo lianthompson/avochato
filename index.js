@@ -1,11 +1,11 @@
 let carouselImages = document.querySelectorAll('.carousel-image')
 let previousBtn = document.querySelector('#previous');
 let nextBtn = document.querySelector('#next');
+let dots = document.querySelectorAll('.dot')
 let current = 0;
 let i = 0;
 let time = 3000;
 let progressTracker = document.querySelector('progress-container');
-
 
 function changeImg() {
     startCarousel();
