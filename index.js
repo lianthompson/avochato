@@ -1,11 +1,15 @@
 let carouselImages = document.querySelectorAll('.carousel-image')
+let currentSlide = document.querySelectorAll('.current-slide');
+let track = document.querySelector('.carousel-container--inner');
 let previousBtn = document.querySelector('#previous');
 let nextBtn = document.querySelector('#next');
-let dots = document.querySelectorAll('.dot')
+let dots = document.querySelector('.dot-container')
+let dotsArray = Array.from(dots.children);
+let currentDot = dots.querySelector('.active');
 let current = 0;
 let i = 0;
 let time = 3000;
-let progressTracker = document.querySelector('progress-container');
+let slides = Array.from(track.children);
 
 function changeImg() {
     startCarousel();
@@ -30,6 +34,17 @@ function reset() {
 function startCarousel() {
     reset();
     carouselImages[i].style.display = "block";
+}
+
+function moveToSlide(track, currentSlide, targetSlide) {
+    track.style.transform = 'translateX(-' + targetSlide.style.left
+    currentSlide.classList.remove('current-slide');
+    targetSlide.classList.add('current-slide');
+}
+
+function updateDots(currentDot, targetDot){
+    currentDot.classList.remove('current-slide');
+    targetDot.classList.add('current-slide');
 }
 
 function slideLeft() {
@@ -57,5 +72,20 @@ nextBtn.addEventListener('click', function() {
     }
     slideRight();
 });
+
+dots.addEventListener('click', e => {
+    const targetDot = e.target.closest('span');
+    if (!targetDot) return;
+    
+    const currentSlide = document.querySelector('.current-slide');
+    const currentDot = dots.querySelector('.current-slide');
+    const targetIndex = dotsArray.findIndex(dot => dot === targetDot)
+    const targetSlide = carouselImages[targetIndex];
+
+    moveToSlide(track, currentSlide, targetSlide)
+    updateDots(currentDot, targetDot);
+});
+
+
 
 startCarousel();

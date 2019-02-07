@@ -88,7 +88,12 @@ a, a:hover {
     height: 12px;
     width: 12px;
     display: inline-block;
-    background: gray;
+    background: rgba(0, 0, 0, .25);
     border-radius: 50%;
+    padding: 5px;
+    margin: 5px;
 }
 
+.dot.active {
+    background: rgba(0, 0, 0, .75);
+}
