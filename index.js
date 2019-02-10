@@ -1,15 +1,15 @@
-let carouselImages = document.querySelectorAll('.carousel-image')
-let currentSlide = document.querySelectorAll('.current-slide');
-let track = document.querySelector('.carousel-container--inner');
-let previousBtn = document.querySelector('#previous');
-let nextBtn = document.querySelector('#next');
-let dots = document.querySelector('.dot-container')
-let dotsArray = Array.from(dots.children);
-let currentDot = dots.querySelector('.active');
-let current = 0;
+const carouselImages = document.querySelectorAll('.carousel-image')
+const currentSlide = document.querySelectorAll('.current-slide');
+const track = document.querySelector('.carousel-container--inner');
+const previousBtn = document.querySelector('#previous');
+const nextBtn = document.querySelector('#next');
+const dots = document.querySelector('.dot-container')
+const dotsArray = Array.from(dots.children);
+const currentDot = dots.querySelector('.active');
+const current = 0;
 let i = 0;
-let time = 3000;
-let slides = Array.from(track.children);
+const time = 3000;
+const slides = Array.from(track.children);
 
 function changeImg() {
     startCarousel();
