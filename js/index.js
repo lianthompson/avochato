@@ -1,5 +1,7 @@
 const carouselImages = document.querySelectorAll('.carousel-image')
-const currentSlide = document.querySelectorAll('.current-slide');
+const carouselImagesArray = Array.from(carouselImages);
+const currentSlide = document.querySelector('.current-slide');
+const currentSlideArray = Array.from(currentSlide);
 const track = document.querySelector('.carousel-container--inner');
 const previousBtn = document.querySelector('#previous');
 const nextBtn = document.querySelector('#next');
@@ -10,6 +12,18 @@ const current = 0;
 let i = 0;
 const time = 3000;
 const slides = Array.from(track.children);
+const slideWidth = slides[0].getBoundingClientRect().width;
+
+startCarousel();
+
+
+function reset() {
+    for (let i = 0; i < carouselImagesArray.length; i++) {
+        carouselImagesArray[i].style.display = 'none';
+        dotsArray[i].style.backround = "background: rgba(0, 0, 0, .25)";
+    }
+}
+
 
 function changeImg() {
     startCarousel();
@@ -25,67 +39,54 @@ function changeImg() {
 
 changeImg();
 
-function reset() {
-    for (let i = 0; i < carouselImages.length; i++) {
-        carouselImages[i].style.display = 'none';
-    }
-}
 
 function startCarousel() {
     reset();
-    carouselImages[i].style.display = "block";
-}
 
-function moveToSlide(track, currentSlide, targetSlide) {
-    track.style.transform = 'translateX(-' + targetSlide.style.left
-    currentSlide.classList.remove('current-slide');
-    targetSlide.classList.add('current-slide');
-}
-
-function updateDots(currentDot, targetDot){
-    currentDot.classList.remove('current-slide');
-    targetDot.classList.add('current-slide');
+    carouselImagesArray[i].style.display = "block";
+    dotsArray[i].style.background = "rgba(0, 0, 0, .75)";
 }
 
 function slideLeft() {
     reset();
-    carouselImages[i - 1].style.display = "block";
+    carouselImagesArray[i - 1].style.display = "block";
+    dotsArray[i - 1].style.background = "rgba(0, 0, 0, .75)";
     i--;
 }
 
 function slideRight() {
     reset();
-    carouselImages[i + 1].style.display = "block";
+    carouselImagesArray[i + 1].style.display = "block";
+    dotsArray[i + 1].style.background = "rgba(0, 0, 0, .75)";
     i++;
 }
 
 previousBtn.addEventListener('click', function() {
     if(i === 0){
-        i = carouselImages.length;
+        i = carouselImagesArray.length;
     }
     slideLeft();
 });
 
 nextBtn.addEventListener('click', function() {
-    if(i === carouselImages.length - 1){
+    if(i === carouselImagesArray.length - 1){
         i = -1;
     }
     slideRight();
 });
 
+
+// grab carouselImagesArray index of clicked dot
+
 dots.addEventListener('click', e => {
     const targetDot = e.target.closest('span');
     if (!targetDot) return;
     
-    const currentSlide = document.querySelector('.current-slide');
+    const currentSlide = track.querySelector('.current-slide');
     const currentDot = dots.querySelector('.current-slide');
     const targetIndex = dotsArray.findIndex(dot => dot === targetDot)
-    const targetSlide = carouselImages[targetIndex];
 
-    moveToSlide(track, currentSlide, targetSlide)
-    updateDots(currentDot, targetDot);
+    const targetSlide = carouselImagesArray[targetIndex];
+
+    console.log(targetIndex, targetSlide)
 });
-
-
-
-startCarousel();
