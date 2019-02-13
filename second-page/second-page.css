@@ -4,9 +4,14 @@ body {
     padding: 0;
 }
 
-.carousel-container .carousel-container--inner{
+.carousel-container .carousel-container--inner {
     height: 100vh;
     width: 100vw;
+}
+
+.carousel-container--inner {
+    position: relative;
+    overflow: hidden;
 }
 
 a, a:hover {
@@ -18,6 +23,7 @@ a, a:hover {
 .carousel-image {
     display: none;
     position: absolute;
+    overflow: hidden;
     background-size: cover;
     background-position-x: center;
     background-repeat: no-repeat;
@@ -51,7 +57,7 @@ a, a:hover {
     justify-content: space-between;
 }
 
-.btn {
+.carousel__btn {
     background: white;
     border-radius: 5px;
     border: transparent;
@@ -60,6 +66,7 @@ a, a:hover {
     top: 60%;
     font-family: 'Quicksand', sans-serif;
     font-size: 20px;
+    height: 40px;
 }
 
 .page-btn {
@@ -67,14 +74,15 @@ a, a:hover {
     height: 40px;
     font-size: 20px;
     font-family: 'Quicksand', sans-serif;
+    cursor: pointer;
 }
   
-#next {
+#nextButton {
     right: 0;
     margin-right: 60px;
 }
 
-#previous {
+#prevButton {
     margin-left: 30px;
 }
 
@@ -91,8 +99,9 @@ a, a:hover {
     border-radius: 50%;
     padding: 5px;
     margin: 5px;
+    cursor: pointer;
 }
 
-.dot.active {
+.dot.current-slide {
     background: rgba(0, 0, 0, .75);
 }
